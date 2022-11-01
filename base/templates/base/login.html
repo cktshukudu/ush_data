@@ -1,0 +1,33 @@
+{% extends 'loginlayout.html' %}
+
+{% block content %}
+<body>
+   <hr>
+   <h1 style="text-align: center;">CMDB</h1>
+   <br>
+   <div class="card home">
+       <h1><b>Hello there!</b></h1>
+       <h6>Sign in with your TR-Invoice account</h6>
+       <form action=" " method="post">
+           {% csrf_token %}
+           
+           <input class="input-field" type="text" name="email" placeholder="Sign in with your account" class="input">
+           <i class="fa fa-user icon"></i>
+           <input class="input-field" type="password" name="password" placeholder="Login password" class="input" id="password">
+           <i class="fa fa-eye icon" onclick="showPassword()"></i>
+           <br>
+           {% if messages %}
+           {% for message in messages %}
+            <div class="alert alert-{{message.tags}}" style="color: red;">{{message}}</div>
+            {% endfor %}
+           {% endif %}
+           <br>
+           <h6></h6>
+           <button type="submit" class="btn">login</button>
+           <br>
+       </form>
+       <br>
+       
+   </div>
+</body>
+{% endblock %}
